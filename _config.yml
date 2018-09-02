@@ -1,3 +1,4 @@
 name: 随想Hulg
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+language: zh-CN
