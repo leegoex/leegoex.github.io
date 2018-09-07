@@ -3,7 +3,7 @@ body {
     width: 70%;
 }
 nav ul, footer ul {
-    font-family: 'YouYuan', 'Consolas', 'Courier New', 'monospace';
+    font-family: 'Times New Roman', 'Consolas', 'Courier New', 'monospace';
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -21,7 +21,7 @@ a:hover {
 }
 h1 {
     font-size: 3em;
-    font-family: 'YouYuan', 'Consolas', 'Courier New', 'monospace';
+    font-family: 'Times New Roman', 'Consolas', 'Courier New', 'monospace';
 }
 p {
     font-size: 1.5em;
@@ -43,7 +43,7 @@ ul.posts li {
 }
 
 .content, .post {
-    font-family: 'YouYuan', 'Consolas', 'Courier New', 'monospace';
+    font-family: 'Times New Roman', 'Consolas', 'Courier New', 'monospace';
     font-size: .8em;
     line-height: 1em;
 }
