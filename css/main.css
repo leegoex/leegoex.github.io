@@ -42,6 +42,6 @@ ul.posts li {
     list-style: none;
 }
 
-content, post {
+.content, .post {
     font-family: 'YouYuan', 'Consolas', 'Courier New', 'monospace';
 }
