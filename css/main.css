@@ -44,4 +44,6 @@ ul.posts li {
 
 .content, .post {
     font-family: 'YouYuan', 'Consolas', 'Courier New', 'monospace';
+    font-size: .8em;
+    line-height: 1em;
 }
