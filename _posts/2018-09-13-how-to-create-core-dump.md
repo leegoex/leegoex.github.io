@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Core Dump使用方法"
+date: 2018-09-13
+---
+
 # core dump的概念
 
 > A core dump is the recorded state of the working memory of a computer program at a specific time, generally when the program has terminated abnormally (crached). In practice, other key pieces of program state a usually dumped at the same time, including the processor registers, which may include the program counter and stack pointer, memory management information, and other processor and operating system flags and information. The name comes from the once-standard memory technology core memory. Core dumps are often used to diagnose or debug errors in computer programs.
