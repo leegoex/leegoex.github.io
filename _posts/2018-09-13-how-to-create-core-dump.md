@@ -21,14 +21,14 @@ Linux系统通过ulimit来设置应用程序是否生成core dump文件，ulimit
 * 默认显示的是软限制，如果运行ulimit命令修改的时候没有加上的话，就是两个参数一起改变生效；
 
 ## 方法二
- 
+
 Linux系统提供了getrlimit，setrlimit两个c函数来实现ulimit的功能，这两个函数的原型是：
 
 ```cpp
 int getrlimit(int resource, struct rlimit *rlim);
 int setrlimit(int resource, const struct rlimit *rlim);
 ```
-    
+
 * resource：resource的取值对应ulimit的各个参数，具体取值可以查看该函数的man page，其中RLIMIT_CORE表示设置core dump文件大小；
 * rlim：对于每一个resource，它都有一个对应的soft limit和hard limit，这两个值就保存在一个rlimit结构中，这个结构的原型是：
 
@@ -38,7 +38,7 @@ struct rlimit {
     rlim_t rlim_max;  /* Hard limit (ceiling for rlim_cur) */
 };
 ```
-    
+
 > The soft limit is the value that the kernel enforces for the corresponding resource. The hard limit acts as a ceiling(天花板；上限) for the soft limit: an unprivileged process may only set its soft limit to a value in the range from 0 up to the hard limit, and (irreversibly(不可逆转地)) lower its hard limit. A privileged process (under Linux: one with the CAP_SYS_RESOURCE capability) may make arbitrary changes to either limit value.
 
 ## 方法三
@@ -55,7 +55,7 @@ session required pam_limits.so
 
 以下例子说明如何启用程序生成core dump文件：
 ### root用户
-    
+
     1. 在终端下输入
         [root@service3 ~]$ echo "ulimit -c 1024" >> /etc/profile
     2. 重启Linux
@@ -65,9 +65,9 @@ session required pam_limits.so
 
 ### 非root用户
 在用户的~/.bash_profile里加上：
-    
+
     ulimit -c 1024
-    
+
 来让特定用户可以产生core dump文件，并限制core dump文件的大小为1024kb
 
 ### 通过程序控制
@@ -89,7 +89,7 @@ session required pam_limits.so
 
 
 # 如何产生core dump文件
-发生core dump一般都是在进程收到某个信号的时候。Linux上现在大概有60多个信号，可以使用kill -l命令将全部信号列举出来。 
+发生core dump一般都是在进程收到某个信号的时候。Linux上现在大概有60多个信号，可以使用kill -l命令将全部信号列举出来。
 针对特定的信号，应用程序可以写对应的信号处理函数。如果不指定，则采用默认的处理方式，默认处理是core dump的信号是：
 
     SIGQUIT SIGILL SIGABRT SIGFPE SIGSEGV SIGBUS SIGSYS SIGTRAP SIGXCPU SIGXFSZ SIGIOT
@@ -101,7 +101,3 @@ core dump文件使用gdb工具进行调试，调试的方法是：
     gdb <可执行文件名> <core dump文件>
 
 如果要让gdb打印的信息定位到代码中的某一行，则在编译程序是需要添加-g编译选项
-
-# 参考链接
-- http://andyniu.iteye.com/blog/1965571
-- http://www.jianshu.com/p/23ee9db2a620
